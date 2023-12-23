@@ -1,0 +1,154 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 70652279509380,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.6,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "46",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "anything-v5-PrtRE.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "6": {
+    "inputs": {
+      "text": "1girl",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "inputs": {
+      "text": "bad quality",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "26": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "46": {
+    "inputs": {
+      "strength": 1,
+      "conditioning": [
+        "6",
+        0
+      ],
+      "control_net": [
+        "47",
+        0
+      ],
+      "image": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "ControlNetApply"
+  },
+  "47": {
+    "inputs": {
+      "control_net_name": "control_v11p_sd15_inpaint_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader"
+  },
+  "52": {
+    "inputs": {
+      "image": [
+        "56",
+        0
+      ],
+      "mask": [
+        "53",
+        1
+      ]
+    },
+    "class_type": "InpaintPreprocessor"
+  },
+  "53": {
+    "inputs": {
+      "image": "oimoyu_mask.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage"
+  },
+  "55": {
+    "inputs": {
+      "samples": [
+        "57",
+        0
+      ],
+      "mask": [
+        "53",
+        1
+      ]
+    },
+    "class_type": "SetLatentNoiseMask"
+  },
+  "56": {
+    "inputs": {
+      "image": "oimoyu_viewport.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage"
+  },
+  "57": {
+    "inputs": {
+      "pixels": [
+        "56",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode"
+  }
+}
