@@ -44,7 +44,7 @@ def match_brush(context):
     view_camera_offset = r3d.view_camera_offset
     view_camera_zoom = r3d.view_camera_zoom
     r3d.view_camera_offset = (0, 0)
-    brush.stencil_pos = ((area_width) / 2, (area_height - 25) / 2)
+    brush.stencil_pos = ((area_width) / 2, (area_height) / 2)
     brush.stencil_dimension = (length / 2, length / 2)
     texture = brush.texture
 
